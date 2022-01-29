@@ -87,7 +87,7 @@ public class Date {
 			this.day = day;
 	}
 
-	public int getMonth() {
+	public int getMonthRenamed() {
 //		if (month.equals("January"))
 //			return 1;
 //		else if (month.equals("February"))
@@ -157,7 +157,7 @@ public class Date {
 	}
 
 	public boolean precedes(Date otherDate) {
-		return ((year < otherDate.year) || (year == otherDate.year && getMonth() < otherDate.getMonth())
+		return ((year < otherDate.year) || (year == otherDate.year && getMonthRenamed() < otherDate.getMonthRenamed())
 				|| (year == otherDate.year && month.equals(otherDate.month) && day < otherDate.day));
 	}
 
@@ -192,22 +192,22 @@ public class Date {
 //				|| month.equals("May") || month.equals("June") || month.equals("July") || month.equals("August")
 //				|| month.equals("September") || month.equals("October") || month.equals("November")
 //				|| month.equals("December"));
-		boolean returnValue = false;
+		boolean renamedReturnValue = false;
 		switch (month) {
-		case "January" -> returnValue = true;
-		case "February" -> returnValue = true;
-		case "March" -> returnValue = true;
-		case "April" -> returnValue = true;
-		case "May" -> returnValue = true;
-		case "June" -> returnValue = true;
-		case "July" -> returnValue = true;
-		case "August" -> returnValue = true;
-		case "September" -> returnValue = true;
-		case "October" -> returnValue = true;
-		case "November" -> returnValue = true;
-		case "December" -> returnValue = true;
+		case "January" -> renamedReturnValue = true;
+		case "February" -> renamedReturnValue = true;
+		case "March" -> renamedReturnValue = true;
+		case "April" -> renamedReturnValue = true;
+		case "May" -> renamedReturnValue = true;
+		case "June" -> renamedReturnValue = true;
+		case "July" -> renamedReturnValue = true;
+		case "August" -> renamedReturnValue = true;
+		case "September" -> renamedReturnValue = true;
+		case "October" -> renamedReturnValue = true;
+		case "November" -> renamedReturnValue = true;
+		case "December" -> renamedReturnValue = true;
 		}
-		return returnValue;
+		return renamedReturnValue;
 	}
 
 	private String monthString(int monthNumber) {
