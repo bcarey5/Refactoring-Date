@@ -153,12 +153,17 @@ public class Date {
 	}
 
 	public boolean equals(Date otherDate) {
-		return ((month.equals(otherDate.month)) && (day == otherDate.day) && (year == otherDate.year));
+		return (extracted(otherDate) && (day == otherDate.day) && (year == otherDate.year));
 	}
 
 	public boolean precedes(Date otherDate) {
-		return ((year < otherDate.year) || (year == otherDate.year && getMonthRenamed() < otherDate.getMonthRenamed())
-				|| (year == otherDate.year && month.equals(otherDate.month) && day < otherDate.day));
+		int otherYear = otherDate.year;
+		return ((year < otherYear) || (year == otherYear && getMonthRenamed() < otherDate.getMonthRenamed())
+				|| (year == otherYear && extracted(otherDate) && day < otherDate.day));
+	}
+
+	private boolean extracted(Date otherDate) {
+		return month.equals(otherDate.month);
 	}
 
 	public void readInput() {
